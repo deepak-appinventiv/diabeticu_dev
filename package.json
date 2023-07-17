@@ -6,9 +6,16 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
+    "lint-staged": "./node_modules/.bin/lint-staged",
     "start": "react-native start",
     "test": "jest",
-    "prepare": "husky install"
+    "postinstall": "husky install"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "./node_modules/.bin/prettier --write",
+      "./node_modules/.bin/eslint"
+    ]
   },
   "husky": {
     "hooks": {
@@ -16,6 +23,7 @@
     }
   },
   "dependencies": {
+    "lint-staged": "^13.2.3",
     "react": "18.2.0",
     "react-native": "0.72.1",
     "react-native-config": "^1.5.1",
