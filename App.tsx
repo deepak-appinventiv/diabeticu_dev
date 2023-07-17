@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import type { PropsWithChildren } from 'react';
 import {
   SafeAreaView,
@@ -15,6 +15,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Pressable,
 } from 'react-native';
 
 import {
@@ -24,8 +25,11 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { ENVIRONMENT } from './js/config';
-import Device from './js/service/device';
+import { ENVIRONMENT } from '@diabeticu/config';
+import Device from '@diabeticu/service/device';
+
+import '@diabeticu/i18n';
+import { useTranslation } from 'react-i18next';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -60,6 +64,16 @@ function Section({ children, title }: SectionProps): JSX.Element {
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
+  const { t, i18n } = useTranslation();
+  const [currentLanguage, setLanguage] = useState('en');
+
+  const changeLanguage = (value: string) => {
+    i18n
+      .changeLanguage(value)
+      .then(() => setLanguage(value))
+      .catch((err: Error) => console.log(err));
+  };
+
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -76,6 +90,16 @@ function App(): JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+
+        <Text>{t('hello')}</Text>
+        <Pressable
+          onPress={() => changeLanguage(currentLanguage === 'en' ? 'fr' : 'en')}
+          style={{
+            backgroundColor: currentLanguage === 'fr' ? '#33A850' : '#d3d3d3',
+            padding: 20,
+          }}>
+          <Text>{currentLanguage === 'en' ? 'French' : 'English'}</Text>
+        </Pressable>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
