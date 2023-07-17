@@ -25,6 +25,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import { ENVIRONMENT } from './js/config';
+import Device from './js/service/device';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -63,7 +64,7 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  console.log({ ENVIRONMENT });
+  console.log({ ENVIRONMENT, Device });
 
   return (
     <SafeAreaView style={backgroundStyle}>
