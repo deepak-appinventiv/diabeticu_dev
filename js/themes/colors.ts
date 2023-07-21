@@ -1,0 +1,41 @@
+const ColorCodes = {
+  red: '#DA2A31',
+  teal: '#129C9C',
+  blue: '#0721E6',
+  grey: '#7F7F7F',
+  white: '#FFFFFF',
+  black: '#000000',
+  gray400: '#222222',
+  saffron: '#EB8148',
+  blurple: '#6E7BFB',
+  hotPink: '#F86185',
+  lightGreen: '#2CE280',
+  powderGrey: '#E7EFEF',
+  powderBlue: '#C5E2F3',
+  cornflowerBlue: '#0D83F0',
+  mediumSeaGreen: '#4BA675',
+};
+
+const Color = {
+  red: ColorCodes.red,
+  grey: ColorCodes.grey,
+  teal: ColorCodes.teal,
+  blue: ColorCodes.blue,
+  white: ColorCodes.white,
+  black: ColorCodes.black,
+  hotPink: ColorCodes.hotPink,
+  blurple: ColorCodes.blurple,
+  saffron: ColorCodes.saffron,
+  darkGrey: ColorCodes.gray400,
+  powderGrey: ColorCodes.powderGrey,
+  powderBlue: ColorCodes.powderBlue,
+  lightGreen: ColorCodes.lightGreen,
+  cornflowerBlue: ColorCodes.cornflowerBlue,
+  mediumSeaGreen: ColorCodes.mediumSeaGreen,
+  primaryHeader: ColorCodes.black,
+  secondaryHeader: ColorCodes.black,
+  seeAll: ColorCodes.blue,
+  shortDesc: ColorCodes.grey,
+};
+
+export default Color;
